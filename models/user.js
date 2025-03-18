@@ -20,6 +20,29 @@ const userSchema = new Schema(
       unique: true,
       sparse: true, // ✅ Allows multiple `null` values while keeping uniqueness for non-null values
     },
+    githubId: {
+      type: String,
+      unique: true,
+      sparse: true,
+    },
+    githubUsername: {
+      type: String,
+      sparse: true,
+    },
+    githubAvatar: {
+      type: String,
+    },
+    githubBio: {
+      type: String,
+    },
+    githubUrl: {
+      type: String,
+    },
+    provider: {
+      type: String,
+      enum: ['credentials', 'google', 'github'],
+      default: 'credentials'
+    }
   },
   { timestamps: true }
 );
